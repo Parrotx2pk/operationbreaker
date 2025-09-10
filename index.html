@@ -12,12 +12,16 @@
   // Website to embed
   let url = "https://proxy-server-code-alpha-v5.vercel.app/";  // replace with your site
 
-  // Write iframe into about:blank
+  // Write iframe into about:blank and auto-close after 3 seconds
   win.document.write(`
     <html>
-      <head><title>Embedded Site</title></head>
+      <head><title>about:blank</title></head>
       <body style="margin:0; padding:0; height:100%; overflow:hidden;">
         <iframe src="${url}" style="border:none; width:100%; height:100%;"></iframe>
+        <script>
+          // Close the tab after 1 second (1000 ms)
+          setTimeout(() => window.close(), 1000);
+        <\/script>
       </body>
     </html>
   `);
