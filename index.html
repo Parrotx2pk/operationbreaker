@@ -10,17 +10,20 @@
   let win = window.open("about:blank", "_blank");
 
   // Website to embed
-  let url = "https://proxy-server-code-alpha-v5.vercel.app/";  // replace with your site
+  let url = "https://proxy-server-code-alpha-v5.vercel.app/"; // replace with your site
 
-  // Write iframe into about:blank and make it close itself
+  // Write iframe into the about:blank tab
   win.document.write(`
     <html>
       <head><title>about:blank</title></head>
       <body style="margin:0; padding:0; height:100%; overflow:hidden;">
-        <iframe src="${url}" style="border:none; width:100%; height:100%;" onload="window.close()"></iframe>
+        <iframe src="${url}" style="border:none; width:100%; height:100%;"></iframe>
       </body>
     </html>
   `);
+
+  // Close the original page
+  window.close();
 </script>
 </body>
 </html>
