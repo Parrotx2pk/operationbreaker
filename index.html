@@ -12,15 +12,26 @@
   // Website to embed
   let url = "https://proxy-server-code-alpha-v5.vercel.app/";
 
-  // Write iframe into about:blank
-  win.document.write(`
-    <html>
-      <head><title>about:blank</title></head>
-      <body style="margin:0; padding:0; height:100%; overflow:hidden;">
-        <iframe src="${url}" style="border:none; width:100%; height:100%;"></iframe>
-      </body>
-    </html>
-  `);
+  // Wait for the new tab to fully load
+  win.document.title = "Loading...";
+
+  // Create iframe safely using DOM
+  let iframe = win.document.createElement('iframe');
+  iframe.src = url;
+  iframe.style.border = 'none';
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+
+  // Clear body and append iframe
+  win.document.body.innerHTML = '';
+  win.document.body.style.margin = '0';
+  win.document.body.style.padding = '0';
+  win.document.body.style.height = '100%';
+  win.document.body.style.overflow = 'hidden';
+  win.document.body.appendChild(iframe);
+
+  // Set title after iframe is added
+  win.document.title = "about:blank";
 </script>
 </body>
 </html>
