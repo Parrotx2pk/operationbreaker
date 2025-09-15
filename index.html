@@ -2,17 +2,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>V3.0.3</title>
+  <title>V3.0.4</title>
 </head>
 <body>
 <script>
   // Open about:blank
   let win = window.open("about:blank", "_blank");
 
-  // Website to embed
-  let url = "https://akazimc.github.io/operationbreaker/Eaglercraft";
+  // Website to embed (with cache-busting param)
+  let url = "https://akazimc.github.io/operationbreaker/Eaglercraft?nocache=" + Date.now();
 
-  // Wait for the new tab to fully load
+  // Set initial title
   win.document.title = "Loading...";
 
   // Create iframe safely using DOM
@@ -30,7 +30,7 @@
   win.document.body.style.overflow = 'hidden';
   win.document.body.appendChild(iframe);
 
-  // Set title after iframe is added
+  // Update title
   win.document.title = "about:blank";
 </script>
 </body>
